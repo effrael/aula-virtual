@@ -44,7 +44,7 @@ const LoginPage = () => {
           password,
         });
         if (error) throw error;
-        navigate("/admin/bots");
+        navigate("/admin/workspaces");
       }
     } catch (error: any) {
       toast({

@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { Bot, LogOut, Users, MessageSquare } from "lucide-react";
+import { LogOut, Users, MessageSquare, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const AdminLayout = ({ children }: { children: React.ReactNode }) => {
@@ -10,6 +10,7 @@ export const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   const navItems = [
     { to: "/admin/workspaces", label: "Workspaces", icon: Users },
     { to: "/admin/bots", label: "Todos los Bots", icon: MessageSquare },
+    { to: "/admin/certificaciones", label: "Certificaciones", icon: Award },
   ];
 
   return (

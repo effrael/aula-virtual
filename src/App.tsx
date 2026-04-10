@@ -12,6 +12,10 @@ import BotMessagesPage from "./pages/BotMessagesPage";
 import WorkspaceListPage from "./pages/WorkspaceListPage";
 import WorkspacePage from "./pages/WorkspacePage";
 import NotFound from "./pages/NotFound";
+import CertificationsPage from "./pages/CertificationsPage";
+import CertificateTemplatePage from "./pages/CertificateTemplatePage";
+import CertificateIssuePage from "./pages/CertificateIssuePage";
+import VerifyPage from "./pages/VerifyPage";
 
 const queryClient = new QueryClient();
 
@@ -65,6 +69,31 @@ const App = () => (
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/admin/certificaciones"
+              element={
+                <ProtectedRoute>
+                  <CertificationsPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/certificaciones/plantilla/:id"
+              element={
+                <ProtectedRoute>
+                  <CertificateTemplatePage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/certificaciones/emitir/:templateId"
+              element={
+                <ProtectedRoute>
+                  <CertificateIssuePage />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/verify/:id" element={<VerifyPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>

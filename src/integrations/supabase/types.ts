@@ -14,6 +14,203 @@ export type Database = {
   }
   chatbot_redcuore: {
     Tables: {
+      certificate_templates: {
+        Row: {
+          id: string
+          user_id: string
+          name: string
+          pdf_url: string
+          name_x: number
+          name_y: number
+          name_y2: number
+          name_w: number
+          name_h: number
+          name_font_size: number
+          name_align: string
+          name_line_spacing: number
+          dni_x: number
+          dni_y: number
+          dni_w: number
+          dni_h: number
+          dni_font_size: number
+          dni_align: string
+          dni_line_spacing: number
+          qr_x: number
+          qr_y: number
+          qr_size: number
+          code_x: number
+          code_y: number
+          code_w: number
+          code_h: number
+          code_font_size: number
+          code_align: string
+          status_x: number
+          status_y: number
+          status_w: number
+          status_h: number
+          status_font_size: number
+          status_align: string
+          instructor_x: number
+          instructor_y: number
+          instructor_w: number
+          instructor_h: number
+          instructor_font_size: number
+          instructor_align: string
+          inst_id_x: number
+          inst_id_y: number
+          inst_id_w: number
+          inst_id_h: number
+          inst_id_font_size: number
+          inst_id_align: string
+          created_at: string | null
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          name: string
+          pdf_url: string
+          name_x?: number
+          name_y?: number
+          name_y2?: number
+          name_w?: number
+          name_h?: number
+          name_font_size?: number
+          name_align?: string
+          name_line_spacing?: number
+          dni_x?: number
+          dni_y?: number
+          dni_w?: number
+          dni_h?: number
+          dni_font_size?: number
+          dni_align?: string
+          dni_line_spacing?: number
+          qr_x?: number
+          qr_y?: number
+          qr_size?: number
+          code_x?: number
+          code_y?: number
+          code_w?: number
+          code_h?: number
+          code_font_size?: number
+          code_align?: string
+          status_x?: number
+          status_y?: number
+          status_w?: number
+          status_h?: number
+          status_font_size?: number
+          status_align?: string
+          instructor_x?: number
+          instructor_y?: number
+          instructor_w?: number
+          instructor_h?: number
+          instructor_font_size?: number
+          instructor_align?: string
+          inst_id_x?: number
+          inst_id_y?: number
+          inst_id_w?: number
+          inst_id_h?: number
+          inst_id_font_size?: number
+          inst_id_align?: string
+          created_at?: string | null
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          name?: string
+          pdf_url?: string
+          name_x?: number
+          name_y?: number
+          name_y2?: number
+          name_w?: number
+          name_h?: number
+          name_font_size?: number
+          name_align?: string
+          name_line_spacing?: number
+          dni_x?: number
+          dni_y?: number
+          dni_w?: number
+          dni_h?: number
+          dni_font_size?: number
+          dni_align?: string
+          dni_line_spacing?: number
+          qr_x?: number
+          qr_y?: number
+          qr_size?: number
+          code_x?: number
+          code_y?: number
+          code_w?: number
+          code_h?: number
+          code_font_size?: number
+          code_align?: string
+          status_x?: number
+          status_y?: number
+          status_w?: number
+          status_h?: number
+          status_font_size?: number
+          status_align?: string
+          instructor_x?: number
+          instructor_y?: number
+          instructor_w?: number
+          instructor_h?: number
+          instructor_font_size?: number
+          instructor_align?: string
+          inst_id_x?: number
+          inst_id_y?: number
+          inst_id_w?: number
+          inst_id_h?: number
+          inst_id_font_size?: number
+          inst_id_align?: string
+          created_at?: string | null
+        }
+        Relationships: []
+      }
+      certificates: {
+        Row: {
+          id: string
+          template_id: string | null
+          user_id: string
+          recipient_name: string
+          dni: string
+          cert_code: string
+          status: string
+          instructor: string
+          inst_id: string
+          issued_at: string
+        }
+        Insert: {
+          id?: string
+          template_id?: string | null
+          user_id: string
+          recipient_name: string
+          dni: string
+          cert_code?: string
+          status?: string
+          instructor?: string
+          inst_id?: string
+          issued_at?: string
+        }
+        Update: {
+          id?: string
+          template_id?: string | null
+          user_id?: string
+          recipient_name?: string
+          dni?: string
+          cert_code?: string
+          status?: string
+          instructor?: string
+          inst_id?: string
+          issued_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "certificates_template_id_fkey"
+            columns: ["template_id"]
+            isOneToOne: false
+            referencedRelation: "certificate_templates"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       bots: {
         Row: {
           button_icon: string | null
