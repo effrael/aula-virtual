@@ -92,12 +92,17 @@ const CertificationsPage = () => {
   const { data: templates = [], isLoading: loadingTemplates } = useQuery({
     queryKey: ['certificate_templates'],
     queryFn: async () => {
+      console.log('[Fetch] certificate_templates — iniciando...');
       const { data, error } = await supabase
         .schema('chatbot_redcuore')
         .from('certificate_templates')
         .select('*')
         .order('created_at', { ascending: false });
-      if (error) throw error;
+      if (error) {
+        console.error('[Fetch] certificate_templates — error:', error);
+        throw error;
+      }
+      console.log('[Fetch] certificate_templates — resultado:', data);
       return data;
     },
   });
@@ -105,12 +110,17 @@ const CertificationsPage = () => {
   const { data: certificates = [], isLoading: loadingCerts } = useQuery({
     queryKey: ['certificates'],
     queryFn: async () => {
+      console.log('[Fetch] certificates — iniciando...');
       const { data, error } = await supabase
         .schema('chatbot_redcuore')
         .from('certificates')
         .select('*, certificate_templates(name)')
         .order('issued_at', { ascending: false });
-      if (error) throw error;
+      if (error) {
+        console.error('[Fetch] certificates — error:', error);
+        throw error;
+      }
+      console.log('[Fetch] certificates — resultado:', data);
       return data;
     },
   });
